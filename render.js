@@ -210,7 +210,7 @@ function renderItinerary(itinerary) {
         : "";
 
     el.innerHTML = `
-        <h2 class="section-title">📅 出差行程表</h2>
+        <h2 class="section-title">📅 每日行程表</h2>
         ${daysHtml}
         ${noteHtml}
     `;
@@ -235,6 +235,9 @@ function initJumpLinks() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    if (TRIP_DATA.cover && TRIP_DATA.cover.title) {
+        document.title = `${TRIP_DATA.cover.title}｜Travel Guide`;
+    }
     renderNav(NAV_ITEMS);
     renderCover(TRIP_DATA.cover);
     renderFlights(TRIP_DATA.flights);
