@@ -68,14 +68,28 @@ function routeLine(from, to) {
     `;
 }
 
-function buildMapLinks(query) {
-    if (!query) return "";
+function buildMapLinks(target) {
+    if (!target) return "";
 
-    const q = encodeURIComponent(query);
+    let url = "";
+    if (typeof target === "object") {
+        if (target.mapUrl) {
+            url = target.mapUrl;
+        } else {
+            const q = target.mapQuery || target.name || target.address;
+            url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
+        }
+    } else if (typeof target === "string") {
+        if (target.startsWith("http")) {
+            url = target;
+        } else {
+            url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(target)}`;
+        }
+    }
 
     return `
         <div class="map-links">
-            <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">🗺️ Google 地圖</a>
+            <a class="map-btn" href="${url}" target="_blank" rel="noopener">🗺️ Google 地圖</a>
         </div>
     `;
 }
@@ -115,7 +129,7 @@ function renderHotels(hotels) {
                 ${infoItem("退房", hotel.checkOut)}
                 ${infoItem("早餐", hotel.breakfast)}
             </div>
-            ${buildMapLinks(hotel.mapQuery || hotel.name || hotel.address)}
+            ${buildMapLinks(hotel)}
         </div>
     `).join("");
 
@@ -166,8 +180,16 @@ function renderTimelineStep(stop) {
         ? `<div class="step-time">${stop.time}</div>`
         : "";
 
-    const mapHtml = stop.address
-        ? `<a class="step-map" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stop.address)}" target="_blank" rel="noopener">🗺️ Google 地圖</a>`
+    let mapTarget = stop.mapUrl || stop.mapQuery || stop.address;
+    let mapHref = "";
+    if (mapTarget) {
+        mapHref = mapTarget.startsWith("http")
+            ? mapTarget
+            : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapTarget)}`;
+    }
+
+    const mapHtml = mapHref
+        ? `<a class="step-map" href="${mapHref}" target="_blank" rel="noopener">🗺️ Google 地圖</a>`
         : "";
 
     return `
