@@ -47,9 +47,9 @@ const TRIP_DATA = {
         },
         {
             dates: "9/16 - 9/17（1晚）",
-            name: "Tru by Hilton 下龍紅街中心飯店",
-            location: "下龍灣 (Ha Long)",
-            address: "168 Le Thanh Tong, Bach Dang, 10, Ha Long, Quang Ninh, 200000 越南",
+            name: "Tru by Hilton Ha Long Hon Gai Centre",
+            location: "下龍灣 (Hon Gai)",
+            address: "168 Le Thanh Tong, Bach Dang, 10, Hong Gai, Quang Ninh, 200000 越南",
             checkIn: "15:00",
             checkOut: "12:00",
             breakfast: "客房 (1張特大雙人床)"
@@ -135,7 +135,7 @@ const TRIP_DATA = {
                         time: "車程約 2.5 小時"
                     },
                     {
-                        label: "Tru by Hilton 下龍紅街中心飯店辦理入住",
+                        label: "Tru by Hilton Ha Long Hon Gai Centre 辦理入住",
                         time: "15:00 Check-in",
                         link: { type: "hotel", index: 1 }
                     },
@@ -154,7 +154,7 @@ const TRIP_DATA = {
                         time: "上午"
                     },
                     {
-                        label: "Tru by Hilton 下龍紅街中心飯店退房",
+                        label: "Tru by Hilton Ha Long Hon Gai Centre 退房",
                         time: "12:00 前 Check-out"
                     },
                     {
