@@ -41,6 +41,7 @@ const TRIP_DATA = {
             name: "金藝術飯店 (Golden Art Hotel)",
             location: "河內老城區 (Hoan Kiem)",
             address: "6A Hang But, Hoan Kiem, Hanoi, 10000 越南",
+            mapQuery: "Golden Art Hotel Hanoi",
             checkIn: "14:00",
             checkOut: "12:00",
             breakfast: "蜜月客房"
@@ -50,6 +51,7 @@ const TRIP_DATA = {
             name: "Tru by Hilton Ha Long Hon Gai Centre",
             location: "下龍灣 (Hon Gai)",
             address: "168 Le Thanh Tong, Bach Dang, 10, Hong Gai, Quang Ninh, 200000 越南",
+            mapQuery: "Tru by Hilton Ha Long Hon Gai Centre",
             checkIn: "15:00",
             checkOut: "12:00",
             breakfast: "客房 (1張特大雙人床)"
@@ -59,6 +61,7 @@ const TRIP_DATA = {
             name: "金藝術飯店 (Golden Art Hotel)",
             location: "河內老城區 (Hoan Kiem)",
             address: "6A Hang But, Hoan Kiem, Hanoi, 10000 越南",
+            mapQuery: "Golden Art Hotel Hanoi",
             checkIn: "14:00",
             checkOut: "12:00",
             breakfast: "蜜月客房"

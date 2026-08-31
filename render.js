@@ -68,10 +68,10 @@ function routeLine(from, to) {
     `;
 }
 
-function buildMapLinks(address) {
-    if (!address) return "";
+function buildMapLinks(query) {
+    if (!query) return "";
 
-    const q = encodeURIComponent(address);
+    const q = encodeURIComponent(query);
 
     return `
         <div class="map-links">
@@ -115,7 +115,7 @@ function renderHotels(hotels) {
                 ${infoItem("退房", hotel.checkOut)}
                 ${infoItem("早餐", hotel.breakfast)}
             </div>
-            ${buildMapLinks(hotel.address)}
+            ${buildMapLinks(hotel.mapQuery || hotel.name || hotel.address)}
         </div>
     `).join("");
 
